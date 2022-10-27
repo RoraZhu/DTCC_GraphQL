@@ -1,5 +1,5 @@
-# DTCC-Restful APIs
-This project implements Restful APIs for CTM, Alert & Trade Suite.
+# DTCC-graphQL API
+This project implements graphQL APIs for CTM, Alert & Trade Suite.
 
 ## Connect to Snowflake
 
