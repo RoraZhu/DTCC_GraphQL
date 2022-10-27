@@ -1,4 +1,4 @@
-# DTCC-graphQL API
+# DTCC-GraphQL API
 This project implements graphQL APIs for CTM, Alert & Trade Suite.
 
 ## Connect to Snowflake
