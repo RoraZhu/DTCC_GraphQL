@@ -1,0 +1,17 @@
+type Family {
+    family_id: ID!
+    family_name: String
+    family_description: String
+}
+
+
+extend type Query {
+    findFamilyById(id: ID): Family
+    findAllFamilies: [Family]
+}
+
+extend type Mutation {
+    createFamily(family_id: ID!, family_name: String, family_description: String): Family!
+    updateFamily(family_id: ID!, family_name: String, family_description: String): Family!
+    deleteFamily(family_id: ID!): Boolean
+}
