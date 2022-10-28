@@ -1,6 +1,8 @@
 package com.bezkoder.springgraphql.mysql.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -15,46 +17,46 @@ import java.sql.Timestamp;
 @Table(name = "ORGANIZATION")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Organization {
 
     @Id
     @Column(name = "ORG_ID")
-    private Long orgId;
+    private Long org_id;
 
     @Column(name = "ORG_NAME")
-    private String orgName;
+    private String org_name;
 
     @Column(name = "ORG_LONG_NAME")
-    private String orgLongName;
+    private String org_long_name;
 
     @Column(name = "START_DATE")
-    private Timestamp startDate;
+    private String start_date;
 
     @Column(name = "END_DATE")
-    private Timestamp endDate;
+    private String end_date;
 
     @Column(name = "ORG_TYPE")
-    private String orgType;
+    private String org_type;
 
     @Column(name = "ESG_REGION_CODE")
-    private String esgRegionCode;
+    private String esg_region_code;
 
     @Column(name = "PRIVATE_FLAG")
-    private Character privateFlag;
+    private Character private_flag;
 
     @Column(name = "DESCRIPTION")
     private String description;
 
     @Column(name = "BIC_LID_PRIORITY_ID")
-    private Long bicLidPriorityId;
+    private Long bic_lid_priority_id;
 
     @Column(name = "MARKET_ID")
-    private Long marketId;
+    private Long market_id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "FAMILY_ID", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "FAMILY_ID", nullable = false, updatable = false)
     private Family family;
 
 }

@@ -1,0 +1,20 @@
+type Organization {
+    org_id: ID!
+    org_name: String
+    org_long_name: String
+    family_id: ID
+    start_date: String
+    end_date: String
+    org_type: String
+    esg_region_code: String
+    private_flag: String
+    description: String
+    bic_lid_priority_id: ID
+    market_id: ID
+
+}
+
+extend type Query {
+    findAllOrganizations: [Organization]!
+    findOrganizationById(id: ID): Organization
+}
