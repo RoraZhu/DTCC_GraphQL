@@ -1,10 +1,10 @@
-# Spring Boot + GraphQL + MySQL example
+# DTCC-GraphQL API
+This project implements graphQL APIs for CTM, Alert & Trade Suite.
 
-For more detail, please visit:
-> [Spring Boot + GraphQL + MySQL example with Spring JPA & graphql-spring-boot-starter](https://bezkoder.com/spring-boot-graphql-mysql-jpa/)
+## Connect to Snowflake
 
-
-## Run Spring Boot application
+Before running the project please set up the environmental variables to update the application.properties under src/main/resources with your snowflake connection details
 ```
-mvn spring-boot:run
-```
+spring.datasource.url=jdbc:snowflake://${SNOWFLAKE_ACCOUNTNAME}.us-east-1.snowflakecomputing.com:443?db=${SNOWFLAKE_DATABASE}&warehouse=${SNOWFLAKE_WAREHOUSE}&schema=GRAPHQL
+spring.datasource.username=${SNOWFLAKE_USER}
+spring.datasource.password=${SNOWFLAKE_PASSWORD}
