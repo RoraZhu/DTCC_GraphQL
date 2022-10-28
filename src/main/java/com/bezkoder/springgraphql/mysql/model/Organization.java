@@ -23,40 +23,44 @@ public class Organization {
 
     @Id
     @Column(name = "ORG_ID")
-    private Long org_id;
+    private Long orgId;
 
     @Column(name = "ORG_NAME")
-    private String org_name;
+    private String orgName;
 
     @Column(name = "ORG_LONG_NAME")
-    private String org_long_name;
+    private String orgLongName;
 
     @Column(name = "START_DATE")
-    private String start_date;
+    private String startDate;
 
     @Column(name = "END_DATE")
-    private String end_date;
+    private String endDate;
 
     @Column(name = "ORG_TYPE")
-    private String org_type;
+    private String orgType;
 
     @Column(name = "ESG_REGION_CODE")
-    private String esg_region_code;
+    private String esgRegionCode;
 
     @Column(name = "PRIVATE_FLAG")
-    private Character private_flag;
+    private Character privateFlag;
 
     @Column(name = "DESCRIPTION")
     private String description;
 
     @Column(name = "BIC_LID_PRIORITY_ID")
-    private Long bic_lid_priority_id;
+    private Long bicLidPriorityId;
 
     @Column(name = "MARKET_ID")
-    private Long market_id;
+    private Long marketId;
 
     @ManyToOne
     @JoinColumn(name = "FAMILY_ID", nullable = false, updatable = false)
     private Family family;
+
+    public Long getFamilyId(){
+        return family.getFamilyId();
+    }
 
 }

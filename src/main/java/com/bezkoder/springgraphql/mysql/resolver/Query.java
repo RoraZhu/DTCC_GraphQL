@@ -49,19 +49,19 @@ public class Query implements GraphQLQueryResolver {
 		return tutorialRepository.count();
 	}
 
-	public Iterable<Family> findAllFamilies() {
-		return familyRepository.findAll();
+//	public Iterable<Family> findAllFamilies() {
+//		return familyRepository.findAll();
+//	}
+
+	public Family findFamilyById(Long id) {
+		return familyRepository.findByFamilyId(id);
 	}
 
-	public Optional<Family> findFamilyById(Long id) {
-		return familyRepository.findById(id);
-	}
+//	public Iterable<Organization> findAllOrganizations(){
+//		return organizationRepository.findAll();
+//	}
 
-	public Iterable<Organization> findAllOrganizations(){
-		return organizationRepository.findAll();
-	}
-
-	public Optional<Organization> findOrganizationById(Long id){
-		return organizationRepository.findById(id);
+	public Organization findOrganizationById(Long id){
+		return organizationRepository.findOrganizationByOrgId(id);
 	}
 }

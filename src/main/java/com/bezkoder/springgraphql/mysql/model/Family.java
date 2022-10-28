@@ -19,20 +19,21 @@ import javax.persistence.Table;
 public class Family {
     @Id
     @Column(name = "FAMILY_ID")
-    private Long family_id;
+    private Long familyId;
 
     @Column(name = "FAMILY_NAME")
-    private String family_name;
+    private String familyName;
 
     @Column(name = "FAMILY_DESCRIPTION")
-    private String family_description;
+    private String familyDescription;
 
     @Override
     public String toString() {
         return "Family{" +
-                "familyId=" + family_id +
-                ", familyName='" + family_name + '\'' +
-                ", familyDescription='" + family_description + '\'' +
+                "familyId=" + familyId +
+                ", familyName='" + familyName + '\'' +
+                ", familyDescription='" + familyDescription + '\'' +
                 '}';
     }
+
 }

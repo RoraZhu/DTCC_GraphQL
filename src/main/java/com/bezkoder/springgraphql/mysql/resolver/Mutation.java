@@ -53,9 +53,9 @@ public class Mutation implements GraphQLMutationResolver {
 
 	public Family createFamily(Long id, String family_name, String family_description) {
 		Family family = new Family();
-		family.setFamily_id(id);
-		family.setFamily_name(family_name);
-		family.setFamily_description(family_description);
+		family.setFamilyId(id);
+		family.setFamilyName(family_name);
+		family.setFamilyDescription(family_description);
 
 		familyRepository.save(family);
 
@@ -97,10 +97,10 @@ public class Mutation implements GraphQLMutationResolver {
 			Family family = optFamily.get();
 
 			if (name != null){
-				family.setFamily_name(name);
+				family.setFamilyName(name);
 			}
 			if (description != null){
-				family.setFamily_description(description);
+				family.setFamilyDescription(description);
 			}
 
 			familyRepository.save(family);

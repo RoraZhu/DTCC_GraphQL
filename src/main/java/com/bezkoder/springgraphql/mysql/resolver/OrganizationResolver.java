@@ -18,7 +18,7 @@ public class OrganizationResolver implements GraphQLResolver<Tutorial> {
         this.familyRepository = familyRepository;
     }
 
-    public Family getFamily_id(Organization organization) {
-        return familyRepository.findById(organization.getFamily().getFamily_id()).orElseThrow(null);
+    public Family getFamilyId(Organization organization) {
+        return familyRepository.findById(organization.getFamily().getFamilyId()).orElseThrow(null);
     }
 }
