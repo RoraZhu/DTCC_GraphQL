@@ -1,0 +1,5 @@
+type OrganizationXrefId{
+    OrgId: ID!
+    orgXrefType: String
+    orgXrefValue: String
+}

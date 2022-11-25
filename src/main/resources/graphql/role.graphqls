@@ -1,0 +1,12 @@
+type Role{
+    roleId: ID!
+#    userId: [UserInfo]
+#    organizationId: ID
+    roleName: String
+    roleDescription: String
+    orgId: Int
+    startDate: String
+    endDate: String
+    allUserFlag: String
+    localFlag: String
+}

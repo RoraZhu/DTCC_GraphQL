@@ -1,0 +1,8 @@
+type OrganizationXref{
+    orgId: ID!
+    orgXrefType: String
+    orgXrefValue: String
+    orgXrefText: String
+    startDate: String
+    endDate: String
+}

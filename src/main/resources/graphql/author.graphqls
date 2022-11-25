@@ -5,10 +5,10 @@ type Author {
 }
 
 # Root
-type Query {
-	findAllAuthors: [Author]!
-	countAuthors: Int!
-}
+#type Query {
+#	findAllAuthors: [Author]!
+#	countAuthors: Int!
+#}
 
 # Root
 type Mutation {

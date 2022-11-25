@@ -1,0 +1,8 @@
+type SecurityTypeLp{
+    id: ID!
+#    groupId: SecurityTypeGroupLp!
+    code: String
+    description: String
+    profileInstrumentTypeCode: String
+    inactiveDate: String
+}

@@ -12,6 +12,9 @@ import org.hibernate.annotations.OnDeleteAction;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "ORGANIZATION")
@@ -62,5 +65,17 @@ public class Organization {
     public Long getFamilyId(){
         return family.getFamilyId();
     }
+
+    @OneToMany(orphanRemoval = true)
+    @JoinColumn(name="ORG_ID")
+    private List<OrganizationXref> organizationXref;
+
+
+    @JsonIgnore
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            mappedBy = "organizations"
+    )
+    private Set<Location> locations = new HashSet<>();
 
 }

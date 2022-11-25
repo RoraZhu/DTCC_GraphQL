@@ -1,0 +1,39 @@
+type AlertAccount {
+    accountId:  ID!
+    version:  Int
+    refId:  String
+    organizationId:  ID
+    accessCode:  String
+    accountName:  String
+    accountName2:  String
+    accountType:  String
+    affirmingParty:  String
+    charityAcctRef:  String
+    clientOfInvestmentAdvisor:  Int
+    contactName:  String
+    contactPhone:  String
+    countryOfOrigin:  String
+    fundIsin:  String
+    institutionBic:  String
+    institutionName:  String
+    omniAccessCode:  String
+    receiverBic:  String
+    receiverName:  String
+    shortName:  String
+    taxExempt:  Int
+    isSsn:  Int
+    taxId:  String
+    taxIdExpirationDate:  String
+    taxWithholdingRequired:  Int
+    fundType:  String
+    largeTradeId:  String
+    accessCodeLeId:  String
+    requestId:  String
+    sourceApp:  Int
+    updateBy:  String
+    updateDate:  String
+}
+
+extend type Query{
+    findOrganizationsByPoliticalSubdivisionAndAlert(politicalSubdivision: String): [AlertAccount]
+}

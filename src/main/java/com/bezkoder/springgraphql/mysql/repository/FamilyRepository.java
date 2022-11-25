@@ -16,6 +16,6 @@ public interface FamilyRepository extends JpaRepository<Family, Long> {
 
     Family findByFamilyId(Long familyId);
 
-    @Query(value = "SELECT FAMILY_ID as \"family_id\", FAMILY_NAME as \"family_name\", FAMILY_DESCRIPTION as \"family_description\" FROM FAMILY", nativeQuery = true)
-    List<Family> findAll();
+//    @Query(value = "SELECT FAMILY_ID as \"family_id\", FAMILY_NAME as \"family_name\", FAMILY_DESCRIPTION as \"family_description\" FROM FAMILY", nativeQuery = true)
+//    List<Family> findAll();
 }

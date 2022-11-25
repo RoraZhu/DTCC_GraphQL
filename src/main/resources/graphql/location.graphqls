@@ -1,0 +1,18 @@
+type Location{
+    locationId: ID!
+#    userId: [UserInfo!]
+#    orgId: [Organization!]
+    locationName: String
+    street1: String
+    street2: String
+    street3: String
+    city: String
+    politicalSubdivision: String
+    postalCode: String
+    country: String
+    openTime: String
+    closeTime: String
+    timeZone: Int
+    locationUrl: String
+    locationPhone: String
+}

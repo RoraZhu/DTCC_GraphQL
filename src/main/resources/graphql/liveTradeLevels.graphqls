@@ -1,0 +1,86 @@
+type LiveTradeLevels{
+    tradeSideId: ID!
+    originatorOfMessageId: Int
+    counterPartyOrgId: Int
+    instructingPartyOrgId: Int
+    executingBrokerOrgId: Int
+    alertCountryCode: Int
+    buySellInd: Int
+    dealPrice: Float
+    executingBroker: String
+#    instructingParty: String
+    quantityOfBlockTrade: String
+    settlementDate: String
+    totalTradeAmount: Float
+    tradeDateTime: String
+    typeOfFinancialInstrument: Int
+    versionOfTradeComponent: Int
+    totalSettlementAmount: Float
+    totalAccruedInterestAmount: Float
+    totalTradeChargesOrTaxes: Float
+    listed: Boolean
+    totalTradeCommissions: Float
+    typeOfTransactionInd: Int
+    masterReference: Int
+    totalNetCashAmount: Float
+    timeZone: String
+#    l2MatchingProfileId:
+    tlBagObjectType: Int
+    securityTypeLp: ID
+    securityCode: Int
+    tradeTransConditionString: String
+    typeOfPriceIndSa: Int
+    descriptionOfSecuritySt: String
+    additionalTextString: String
+    whereListedString: String
+    matchingSecurityCode: Int
+    executorAlertAcronym: String
+    showHiddenFieldsIndicator: Boolean
+    yields: Float
+    completeStatus: Int
+    matchStatus: Int
+    matchAgreedStatus: Int
+    errorStatus: Int
+    tlHighestErrorSeverityDtm: String
+    tsHighestErrorSeverityDtm: String
+    completeStatusDtm: String
+    matchStatusDtm: String
+    matchAgreedStatusDtm: String
+    errorStatusDtm: String
+    rejectFlag: Boolean
+    isitcRejectReasonCode: Int
+    rejectComponentTextString: String
+    rejectComponentDtm: String
+    isAwaitingAmend: Boolean
+    counterPartySideId: Int
+    tradeLevelExpected: Boolean
+    tradeLevelReceived: Boolean
+    transportMessageId: String
+#    userId:
+    magrMatchAgreedStatusDtm: String
+#    brmgId:
+    dealPriceIsL1Field: Boolean
+    firstMatchStatusNmat: String
+    firstMatchStatusMism: String
+    firstCompleteStatusIncp: String
+    firstMatchAgreedStatusNmag: String
+    packedTradeCommissions: Float
+    asynchErrorExists: Boolean
+    firstRejectCompTextString: String
+    firstRejectComponentDtm: String
+    firstCompleteStatusComp: String
+    tradeCurrencyCode: Int
+    tlForcematchflag: Int
+    dmlAction: String
+    dmlTimestamp: String
+    isin: Int
+}
+
+extend type Query {
+    findTradesBySecurityTypeAndXrefTypeAndXrefValue(securityCodeType: String, orgXrefType: String,
+        orgXrefValue: String): [LiveTradeLevels]
+
+    findTradesBySecurityTypeLp(securityCodeTypeLp: String): [LiveTradeLevels]
+
+    findTradesByPoliticalSubdivision(politicalSubdivision: String): [LiveTradeLevels]
+}

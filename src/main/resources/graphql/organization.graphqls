@@ -1,5 +1,6 @@
 type Organization {
     orgId: ID!
+#    locationId: [Location!]
     orgName: String
     orgLongName: String
     familyId: ID
@@ -13,7 +14,8 @@ type Organization {
     marketId: ID
 }
 
-extend type Query {
+type Query {
     # findAllOrganizations: [Organization]!
     findOrganizationById(id: ID): Organization
+
 }

@@ -1,0 +1,17 @@
+type UserInfo{
+    userId: ID!
+#    locationId: [Location!]
+#    roleId: [Role!]
+    loginName: String
+    lastName: String
+    middleName: String
+    firstName: String
+    userType: String
+    startDate: String
+    endDate: String
+}
+
+extend type Query{
+    findUserInfoByPoliticalSubdivisionAndRoleName(politicalSubdivision: String, roleName: String)
+    : [UserInfo]
+}

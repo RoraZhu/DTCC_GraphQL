@@ -1,0 +1,6 @@
+type SecurityTypeGroupLp{
+    id: ID!
+    code: String
+    description: String
+    inactiveDate: String
+}
