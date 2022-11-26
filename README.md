@@ -59,7 +59,7 @@ findTradesByPoliticalSubdivision(politicalSubdivision: "IA"){
 }
 ```
 
-# find trades by security type
+### find trades by security type
 ```
 findTradesBySecurityTypeLp(securityCodeTypeLp: "SWAP"){
     tradeSideId,
@@ -70,7 +70,7 @@ findTradesBySecurityTypeLp(securityCodeTypeLp: "SWAP"){
 }
 ```
 
-# find trades by external references type, value, and security type
+### find trades by external references type, value, and security type
 ```
 findTradesBySecurityTypeAndXrefTypeAndXrefValue(securityCodeType: "SWAP", orgXrefType: "BIC", orgXrefValue: "RUZW8348"){
     counterParty{
@@ -83,7 +83,7 @@ findTradesBySecurityTypeAndXrefTypeAndXrefValue(securityCodeType: "SWAP", orgXre
 }
 ```
 
-# find organization by id
+### find organization by id
 ```
 findOrganizationById(id: 1){
     family{
@@ -94,7 +94,7 @@ findOrganizationById(id: 1){
 }
 ```
 
-# find family by id
+### find family by id
 ```
 findFamilyById(id: 1){
     familyId
