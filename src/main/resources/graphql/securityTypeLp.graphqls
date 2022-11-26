@@ -1,6 +1,6 @@
 type SecurityTypeLp{
     id: ID!
-#    groupId: SecurityTypeGroupLp!
+    securityTypeGroupLp: SecurityTypeGroupLp
     code: String
     description: String
     profileInstrumentTypeCode: String

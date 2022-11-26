@@ -1,7 +1,7 @@
 type UserInfo{
     userId: ID!
-#    locationId: [Location!]
-#    roleId: [Role!]
+    locations: [Location!]
+    roles: [Role!]
     loginName: String
     lastName: String
     middleName: String

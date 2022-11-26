@@ -29,7 +29,7 @@ public class LiveTradeLevelsResolver implements GraphQLResolver<LiveTradeLevels>
     }
 
     public Organization getExecutingBrokerOrgId(LiveTradeLevels liveTradeLevels){
-        return organizationRepository.findById(liveTradeLevels.getExecutingBrokerId().getOrgId()).orElseThrow(null);
+        return organizationRepository.findById(liveTradeLevels.getExecutingBroker().getOrgId()).orElseThrow(null);
     }
 
     public SecurityTypeLp getSecurityTypeLpCode(LiveTradeLevels liveTradeLevels){

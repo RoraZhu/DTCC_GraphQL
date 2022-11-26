@@ -1,5 +1,5 @@
 type OrganizationXref{
-    orgId: ID!
+    org_id: ID!
     orgXrefType: String
     orgXrefValue: String
     orgXrefText: String

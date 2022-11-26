@@ -1,13 +1,13 @@
 type LiveTradeLevels{
     tradeSideId: ID!
     originatorOfMessageId: Int
-    counterPartyOrgId: Int
-    instructingPartyOrgId: Int
-    executingBrokerOrgId: Int
+    counterParty: Organization
+    instructingParty: Organization
+    executingBroker: Organization
     alertCountryCode: Int
     buySellInd: Int
     dealPrice: Float
-    executingBroker: String
+#    executingBroker: String
 #    instructingParty: String
     quantityOfBlockTrade: String
     settlementDate: String

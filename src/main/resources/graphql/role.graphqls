@@ -1,10 +1,10 @@
 type Role{
     roleId: ID!
-#    userId: [UserInfo]
-#    organizationId: ID
+    userInfos: [UserInfo]
+    organization: Organization
     roleName: String
     roleDescription: String
-    orgId: Int
+#    orgId: Int
     startDate: String
     endDate: String
     allUserFlag: String

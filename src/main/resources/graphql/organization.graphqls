@@ -1,9 +1,10 @@
 type Organization {
     orgId: ID!
-#    locationId: [Location!]
+    locations: [Location]
+    organizationXref: [OrganizationXref]
     orgName: String
     orgLongName: String
-    familyId: ID
+    family: Family
     startDate: String
     endDate: String
     orgType: String

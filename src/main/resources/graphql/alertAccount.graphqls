@@ -2,7 +2,7 @@ type AlertAccount {
     accountId:  ID!
     version:  Int
     refId:  String
-    organizationId:  ID
+    organization:  Organization
     accessCode:  String
     accountName:  String
     accountName2:  String

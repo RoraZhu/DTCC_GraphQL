@@ -62,9 +62,6 @@ public class Organization {
     @JoinColumn(name = "FAMILY_ID", nullable = false, updatable = false)
     private Family family;
 
-    public Long getFamilyId(){
-        return family.getFamilyId();
-    }
 
     @OneToMany(orphanRemoval = true)
     @JoinColumn(name="ORG_ID")

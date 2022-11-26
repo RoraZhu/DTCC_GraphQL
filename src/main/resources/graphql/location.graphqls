@@ -1,7 +1,7 @@
 type Location{
     locationId: ID!
-#    userId: [UserInfo!]
-#    orgId: [Organization!]
+    userInfos: [UserInfo]
+    organizations: [Organization]
     locationName: String
     street1: String
     street2: String

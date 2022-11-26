@@ -29,9 +29,9 @@ public class LiveTradeLevels {
     @JsonIgnore
     private Organization instructingParty;
 
-    long getInstructingPartyOrgId(){
-        return instructingParty.getOrgId();
-    }
+//    long getInstructingPartyOrgId(){
+//        return instructingParty.getOrgId();
+//    }
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "COUNTER_PARTY_ORG_ID", referencedColumnName = "ORG_ID", nullable = false)
@@ -39,19 +39,19 @@ public class LiveTradeLevels {
     @JsonIgnore
     private Organization counterParty;
 
-    long getCounterPartyOrgId(){
-        return counterParty.getOrgId();
-    }
+//    long getCounterPartyOrgId(){
+//        return counterParty.getOrgId();
+//    }
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "EXECUTING_BROKER_ORG_ID", referencedColumnName = "ORG_ID", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private Organization executingBrokerId;
+    private Organization executingBroker;
 
-    long getExecutingBrokerOrgId(){
-        return executingBrokerId.getOrgId();
-    }
+//    long getExecutingBrokerOrgId(){
+//        return executingBrokerId.getOrgId();
+//    }
     //counter_party_org_id INT foreign key references organization(org_id),
     //instructing_party_org_id INT foreign key references organization(org_id),
     //executing_broker_org_id INT foreign key references organization(org_id),
@@ -65,8 +65,8 @@ public class LiveTradeLevels {
     @Column(name = "DEAL_PRICE")
     private Float dealPrice;
 
-    @Column(name = "EXECUTING_BROKER")
-    private String executingBroker;
+//    @Column(name = "EXECUTING_BROKER")
+//    private String executingBroker;
 
 //    @Column(name = "INSTRUCTING_PARTY")
 //    private String instructingParty;
@@ -133,14 +133,14 @@ public class LiveTradeLevels {
     @JsonIgnore
     private SecurityTypeLp securityTypeLp;
 
-
-    long getSecurityTypeLpId(){
-        return securityTypeLp.getId();
-    }
-
-    String getSecurityTypeLpCode(){
-        return securityTypeLp.getCode();
-    }
+//
+//    long getSecurityTypeLpId(){
+//        return securityTypeLp.getId();
+//    }
+//
+//    String getSecurityTypeLpCode(){
+//        return securityTypeLp.getCode();
+//    }
 
     @Column(name = "SECURITY_CODE")
     private Long securityCode;
