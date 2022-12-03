@@ -80,6 +80,10 @@ extend type Query {
     findTradesBySecurityTypeAndXrefTypeAndXrefValue(securityCodeType: String, orgXrefType: String,
         orgXrefValue: String): [LiveTradeLevels]
 
+    findTradesBySecurityTypeAndXrefTypeAndXrefValueAndDate(securityCodeType: String,
+        orgXrefType: String, orgXrefValue: String, startDate: String, endDate: String):
+    [LiveTradeLevels]
+
     findTradesBySecurityTypeLp(securityCodeTypeLp: String): [LiveTradeLevels]
 
     findTradesByPoliticalSubdivision(politicalSubdivision: String): [LiveTradeLevels]

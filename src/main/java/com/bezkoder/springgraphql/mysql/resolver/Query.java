@@ -56,6 +56,17 @@ public class Query implements GraphQLQueryResolver {
 		return liveTradeLevelsRepository.findByInstructingPartyOrgIdAndSecurityTypeLpCode(organization.getOrgId(), securityCodeType);
 	}
 
+	public List<LiveTradeLevels> findTradesBySecurityTypeAndXrefTypeAndXrefValueAndDate(
+			String securityCodeType, String orgXrefType, String orgXrefValue,
+			String startDate, String endDate
+	){
+		Timestamp start = getTimeStamp(startDate);
+		Timestamp end = getTimeStamp(endDate);
+		Organization organization =
+				organizationRepository.findByOrganizationXrefOrgXrefTypeAndOrganizationXrefOrgXrefValue(orgXrefType, orgXrefValue);
+		return liveTradeLevelsRepository.findByInstructingPartyOrgIdAndSecurityTypeLpCodeAndTradeDateTimeLessThanEqualAndTradeDateTimeGreaterThanEqual(organization.getOrgId(), securityCodeType, end, start);
+	}
+
 	public List<LiveTradeLevels> findTradesBySecurityTypeLp(String code){
 		return liveTradeLevelsRepository.findBySecurityTypeLpCode(code);
 	}
@@ -95,4 +106,10 @@ public class Query implements GraphQLQueryResolver {
 		Timestamp end = getTimeStamp(endDate);
 		return liveTradeLevelsRepository.findAllByTradeDateTimeLessThanEqualAndTradeDateTimeGreaterThanEqual(end, start);
 	}
+
+//	public List<LiveTradeLevels> findTradeBySecurityTypeAndXrefTypeAndXrefValueAndDate(
+//			String securityCodeType, String orgXrefType, String orgXrefValue,
+//			String startDate, String endDate){
+//
+//	}
 }

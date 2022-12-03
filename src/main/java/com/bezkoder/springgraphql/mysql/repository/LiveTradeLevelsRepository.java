@@ -19,4 +19,7 @@ public interface LiveTradeLevelsRepository extends JpaRepository<LiveTradeLevels
 
     List<LiveTradeLevels> findAllByTradeDateTimeLessThanEqualAndTradeDateTimeGreaterThanEqual(
             Timestamp endDate, Timestamp startDate);
+
+    List<LiveTradeLevels> findByInstructingPartyOrgIdAndSecurityTypeLpCodeAndTradeDateTimeLessThanEqualAndTradeDateTimeGreaterThanEqual(
+            Long orgId, String securityTypeCode, Timestamp endDate, Timestamp startDate);
 }
