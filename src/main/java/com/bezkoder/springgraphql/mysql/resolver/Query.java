@@ -106,10 +106,4 @@ public class Query implements GraphQLQueryResolver {
 		Timestamp end = getTimeStamp(endDate);
 		return liveTradeLevelsRepository.findAllByTradeDateTimeLessThanEqualAndTradeDateTimeGreaterThanEqual(end, start);
 	}
-
-//	public List<LiveTradeLevels> findTradeBySecurityTypeAndXrefTypeAndXrefValueAndDate(
-//			String securityCodeType, String orgXrefType, String orgXrefValue,
-//			String startDate, String endDate){
-//
-//	}
 }
