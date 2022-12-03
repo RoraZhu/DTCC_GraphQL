@@ -34,4 +34,6 @@ public class LiveTradeLevelsResolver implements GraphQLResolver<LiveTradeLevels>
     public SecurityTypeLp getSecurityTypeLpCode(LiveTradeLevels liveTradeLevels){
         return securityTypeLpRepository.findByCode(liveTradeLevels.getSecurityTypeLp().getCode());
     }
+
+
 }

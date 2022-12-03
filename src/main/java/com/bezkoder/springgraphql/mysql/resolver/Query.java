@@ -8,6 +8,10 @@ import org.springframework.stereotype.Component;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Controller;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -72,5 +76,23 @@ public class Query implements GraphQLQueryResolver {
 		List<Organization> organizations =
 				organizationRepository.findByLocationsPoliticalSubdivision(subdivision);
 		return alertAccountRepository.findByOrganizationIn(organizations);
+	}
+
+	private Timestamp getTimeStamp(String date){
+		try {
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			Date parsedDate = dateFormat.parse(date);
+			return new Timestamp(parsedDate.getTime());
+		}
+		catch(ParseException e) {
+			System.out.println("Exception :" + e);
+			return null;
+		}
+	}
+
+	public List<LiveTradeLevels> findTradesByDates(String startDate, String endDate){
+		Timestamp start = getTimeStamp(startDate);
+		Timestamp end = getTimeStamp(endDate);
+		return liveTradeLevelsRepository.findAllByTradeDateTimeLessThanEqualAndTradeDateTimeGreaterThanEqual(end, start);
 	}
 }

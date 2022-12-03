@@ -83,4 +83,6 @@ extend type Query {
     findTradesBySecurityTypeLp(securityCodeTypeLp: String): [LiveTradeLevels]
 
     findTradesByPoliticalSubdivision(politicalSubdivision: String): [LiveTradeLevels]
+
+    findTradesByDates(startDate: String, endDate: String): [LiveTradeLevels]
 }
