@@ -11,7 +11,7 @@ import com.bezkoder.springgraphql.mysql.model.Tutorial;
 import com.coxautodev.graphql.tools.GraphQLResolver;
 
 @Component
-public class OrganizationResolver implements GraphQLResolver<Tutorial> {
+public class OrganizationResolver implements GraphQLResolver<Organization> {
     @Autowired
     private FamilyRepository familyRepository;
     private OrganizationRepository organizationRepository;

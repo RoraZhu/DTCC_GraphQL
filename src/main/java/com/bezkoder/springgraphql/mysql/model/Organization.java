@@ -62,11 +62,9 @@ public class Organization {
     @JoinColumn(name = "FAMILY_ID", nullable = false, updatable = false)
     private Family family;
 
-
     @OneToMany(orphanRemoval = true)
     @JoinColumn(name="ORG_ID")
     private List<OrganizationXref> organizationXref;
-
 
     @JsonIgnore
     @ManyToMany(

@@ -3,20 +3,26 @@ package com.bezkoder.springgraphql.mysql.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "LIVE_TRADE_DETAILS")
 @Getter
 @Setter
-public class LiveTradeDetails {
+@IdClass(TradeDetailPk.class)
+public class LiveTradeDetails implements Serializable {
     @Id
-    @Column(name="TRADE_DETAIL_ID")
+    @Column(name="TRADE_DETAIL_ID", insertable = false, updatable = false)
     private Long tradeDetailId;
 //    TRADE_DETAIL_ID : Int!
     @Column(name="TD_BAG_OBJECT_TYPE")
@@ -37,8 +43,8 @@ public class LiveTradeDetails {
     @Column(name = "QUANTITY_ALLOCATED")
     private Long quantityAllocated;
 //    quantity_allocated : Int
-    @Column(name = "QUANTITY_ALLOCATED")
-    private Long QuantityAllocated;
+    @Column(name = "VERSION_OF_TRADE_COMPONENT")
+    private Long versionOfTradeComponent;
 //    version_of_trade_component : Int
     @Column(name = "TRADE_AMOUNT")
     private Float  tradeAmount;
@@ -164,8 +170,8 @@ public class LiveTradeDetails {
     @Column(name = "TD_FORCEMATCHFLAG")
     private Long tdForcematchflag;
 //    TD_FORCEMATCHFLAG : Int
-    @Column(name = "DML_ACTION CHAR")
-    private String dmlActionl;
+    @Column(name = "DML_ACTION")
+    private String dmlAction;
 //    DML_ACTION CHAR
     @Column(name = "DML_TIMESTAMP")
     private String dmlTimestamp;
@@ -183,5 +189,39 @@ public class LiveTradeDetails {
     private Long largeTradeId;
 //    LARGE_TRADE_ID : Int
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "COUNTER_PARTY_ORG_ID", referencedColumnName = "ORG_ID",
+    insertable = false, updatable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private Organization organization;
+
+}
+@Setter
+@Getter
+class TradeDetailPk implements Serializable{
+    private Long tradeDetailId;
+    private Long tradeSideId;
+
+//    public TradeDetailPk(Long tradeDetailId, Long tradeSideId) {
+//        this.tradeDetailId = tradeDetailId;
+//        this.tradeSideId = tradeSideId;
+//    }
+
+    @Override
+    public boolean equals(Object o){
+        if(o == this){
+            return true;
+        }
+        if(o == null){
+            return false;
+        }
+        if(o instanceof TradesuitePta){
+            TradeDetailPk tradeDetailPk = (TradeDetailPk) o;
+            return Objects.equals(tradeDetailPk.tradeSideId, this.tradeSideId) &&
+                    Objects.equals(tradeDetailPk.tradeDetailId, this.tradeDetailId);
+        }
+        return false;
+    }
 }
 

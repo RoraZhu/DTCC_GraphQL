@@ -1,74 +1,86 @@
 type TradesuitePta{
-        load_date: Int
-        dtcc_control_num: ID!
-        rec_type: String
+        loadDate: Int
+        dtccControlNum: ID!
+        recType: String
         bkrid: String!
         instid: String!
         agtid: String!
-        secur_id: String
+        securId: String
         buysell: String
         pset: String
-        pdq_secur_type: String
-        atp_cancel: String
-        agt_int_acc: String
-        bkr_int_acc: String
-        sett_option: String
-        aff_party: String
-        elig_type: String
-        status_type: String
-        trade_type: String
-        cancel_type: String
-        affirm_type: String
-        inst_name: String
-        inst_bill: String
-        agt_name: String
-        cns_setting_elig: String
-        cl_agtid: String
-        broker_name: String
-        cl_bkrid: String
-        security_desc: String
-        confirm Int
-        cancels Int
-        not_aff Int
-        aff_on_t Int
-        aff_on_t1am Int
-        aff_on_t1pm Int
-        late_affirm Int
-        pdq_elig Int
+        pdqSecurType: String
+        atpCancel: String
+        agtIntAcc: String
+        bkrIntAcc: String
+        settOption: String
+        affParty: String
+        eligType: String
+        statusType: String
+        tradeType: String
+        cancelType: String
+        affirmType: String
+        instName: String
+        instBill: String
+        agtName: String
+        cnsSettingElig: String
+        clAgtid: String
+        brokerName: String
+        clBkrid: String
+        securityDesc: String
+        confirm: Int
+        cancels: Int
+        notAff: Int
+        affOnT: Int
+        affOnT1am: Int
+        affOnT1pm: Int
+        lateAffirm: Int
+        pdqElig: Int
         model: String
         period: String
-        trade_date String
-        sett_date String
-        late_pdq_elig Int
+        tradeDate: String
+        settDate: String
+        latePdqElig: Int
         insite: String
-        alc_source: String
-        ipid_1: String
-        ip_name_1: String
-        ipid_2: String
-        ip_name_2: String
-        ipid_3: String
-        ip_name_3: String
-        agt_categ: String
-        agt_fee: String
-        agt_del_fee: String
-        agt_disc: String
-        bkr_categ: String
-        bkr_fee: String
-        insite_fee: String
-        notification_fee: String
-        bkr_del_fee: String
-        bkr_disc: String
-        load_id Int
-        load_rownum Int
-        trd_transm_dt String
-        trd_actv_dt String
-        trd_match_dt String
-        trd_cnclcorr_dt String
-        trd_disaffirm_dt String
-        trd_affirm_dt String
-        ctm_block_ref_id: String
-        ctm_detail_ref_id: String
-        ctm_bkr_conf_id: String
-        ctm_brkr_ref_id: String
+        alcSource: String
+        ipid1: String
+        ipName1: String
+        ipid2: String
+        ipName2: String
+        ipid3: String
+        ipName3: String
+        agtCateg: String
+        agtFee: String
+        agtDelFee: String
+        agtDisc: String
+        bkrCateg: String
+        bkrFee: String
+        insiteFee: String
+        notificationFee: String
+        bkrDelFee: String
+        bkrDisc: String
+        loadId: Int
+        loadRownum: Int
+        trdTransmDt: String
+        trdActvDt: String
+        trdMatchDt: String
+        trdCnclcorrDt: String
+        trdDisaffirmDt: String
+        trdAffirmDt: String
+        ctmBlockRefId: String
+        ctmDetailRefId: String
+        liveTradeDetails: LiveTradeDetails
+        ctmBkrConfId: String
+        ctmBrkrRefId: String
 }
+
+extend type Query{
+    findTradesuitePtaByDtccControlNum(dtccControlNum: Int): TradesuitePta
+}
+
+extend type Query{
+    findTradesuitePtasInTsByPoliticalSubdivision(politicalSubdivision: String ): [TradesuitePta]
+}
+
+
+
 

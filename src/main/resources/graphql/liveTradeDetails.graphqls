@@ -1,58 +1,60 @@
 type LiveTradeDetails{
-       trade_detail_id : Int!
-       td_bag_object_type : Int
-       accrued_interest_amount : Float
-       account_id: Int
-       exchange_rate: Float
-       settlement_amount: Float
-       quantity_allocated : Int
-       version_of_trade_component : Int
-       trade_amount: Float
-       net_cash_amount: Float
-       client_allocation_reference:String
-       alert_country_code : Int
-       alert_method_type : Int
-       alert_security_type : Int
-       alert_settlement_model_name :String
-       trade_side_id : Int
-       additional_text_string:String
-       party_fund_name_sa :String
-       original_face_amount : Float
-       directed_commissions_a : Float
-       counter_party_detail_id : Int
-       match_status : Int
-       error_status : Int
-       td_highest_error_severity_dtm :String
-       match_status_dtm :String
-       error_status_dtm :String
-       cancel_text_string :String
-       transport_message_id :String
-       user_id : Int
-       te_visible_only :Boolean
-       reject_flag :Boolean
-       isitc_reject_reason_code : Int
-       reject_component_text_string :String
-       reject_component_dtm :String
-       login_id :String
-       originator_of_message_id : Int
-       counter_party_org_id : Int
-       first_match_status_nmat :String
-       first_match_status_mism :String
-       packed_commissions : Float
-       asynch_error_exists :Boolean
-       reported_price : Float
-       markup_markdown : Float
-       asset_backed :Boolean
-       market_maker :String
-       current_face_value : Float
-       clearing_broker_org_id : Int
-       clearing_broker :String
-       td_forcematchflag : Int
-       dml_action CHAR
-       dml_timestamp :String
-       dml_scn : Int
-       workflow_modifiers : Int
-       access_code_le_id : Int
-       large_trade_id : Int
+       tradeDetailId : Int!
+       tdBagObjectType : Int
+       accruedInterestAmount: Float
+       accountId: Int
+       exchangeRate: Float
+       settlementAmount: Float
+       quantityAllocated : Int
+       versionOfTradeComponent : Int
+       tradeAmount: Float
+       netCashAmount: Float
+       clientAllocationReference:String
+       alertCountryCode : Int
+       alertMethodType : Int
+       alertSecurityType : Int
+       alertSettlementModelName :String
+       tradeSideId : Int
+       additionalTextString:String
+       partyFundNameSa :String
+       originalFaceAmount : Float
+       directedCommissionsA : Float
+       counterPartyDetailId : Int
+       matchStatus : Int
+       errorStatus : Int
+       tdHighestErrorSeverityDtm :String
+       matchStatusDtm :String
+       errorStatusDtm :String
+       cancelTextString :String
+       transportMessageId :String
+       userId : Int
+       teVisibleOnly :Boolean
+       rejectFlag :Boolean
+       isitcRejectReasonCode : Int
+       rejectComponentTextString :String
+       rejectComponentDtm :String
+       loginId :String
+       originatorOfMessageId : Int
+       counterPartyOrgId : Int
+       firstMatchStatusNmat :String
+       firstMatchStatusMism :String
+       packedCommissions : Float
+       asynchErrorExists :Boolean
+       reportedPrice : Float
+       markupMarkdown : Float
+       assetBacked :Boolean
+       marketMaker :String
+       currentFaceValue : Float
+       clearingBrokerOrgId : Int
+       clearingBroker :String
+       tdForcematchflag : Int
+       dmlAction: String
+       dmlTimestamp :String
+       dmlScn : Int
+       workflowModifiers : Int
+       accessCodeLeId : Int
+       largeTradeId : Int
 }
-
+extend type Query{
+     findLiveTradeDetailsByTradeDetailId(tradeDetailId: Int): [LiveTradeDetails]
+ }
