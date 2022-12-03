@@ -8,7 +8,11 @@ import org.springframework.stereotype.Component;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Controller;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -97,8 +101,35 @@ public class Query implements GraphQLQueryResolver {
 		return tradesuitePtas;
 	}
 
+	private Timestamp getTimeStamp(String date){
+		try {
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			Date parsedDate = dateFormat.parse(date);
+			return new Timestamp(parsedDate.getTime());
+		}
+		catch(ParseException e) {
+			System.out.println("Exception :" + e);
+			return null;
+		}
+	}
+
+	public List<LiveTradeLevels> findTradesByDates(String startDate, String endDate){
+		Timestamp start = getTimeStamp(startDate);
+		Timestamp end = getTimeStamp(endDate);
+		return liveTradeLevelsRepository.findAllByTradeDateTimeLessThanEqualAndTradeDateTimeGreaterThanEqual(end, start);
+	}
+
 //	public List<LiveTradeDetails> findLiveTradeDetailsByPoliticalSubdivisionAndOrganization(String politicalSubdivision, Long OrgId){
 //		return liveTradeLevelsRepository
 //	}
-
+	public List<LiveTradeLevels> findTradesBySecurityTypeAndXrefTypeAndXrefValueAndDate(
+			String securityCodeType, String orgXrefType, String orgXrefValue,
+			String startDate, String endDate
+	){
+		Timestamp start = getTimeStamp(startDate);
+		Timestamp end = getTimeStamp(endDate);
+		Organization organization =
+				organizationRepository.findByOrganizationXrefOrgXrefTypeAndOrganizationXrefOrgXrefValue(orgXrefType, orgXrefValue);
+		return liveTradeLevelsRepository.findByInstructingPartyOrgIdAndSecurityTypeLpCodeAndTradeDateTimeLessThanEqualAndTradeDateTimeGreaterThanEqual(organization.getOrgId(), securityCodeType, end, start);
+	}
 }

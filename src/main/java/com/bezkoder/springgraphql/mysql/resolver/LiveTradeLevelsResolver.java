@@ -3,7 +3,6 @@ package com.bezkoder.springgraphql.mysql.resolver;
 import com.bezkoder.springgraphql.mysql.model.LiveTradeLevels;
 import com.bezkoder.springgraphql.mysql.model.Organization;
 import com.bezkoder.springgraphql.mysql.model.SecurityTypeLp;
-import com.bezkoder.springgraphql.mysql.repository.LiveTradeLevelsRepository;
 import com.bezkoder.springgraphql.mysql.repository.OrganizationRepository;
 import com.bezkoder.springgraphql.mysql.repository.SecurityTypeLpRepository;
 import com.coxautodev.graphql.tools.GraphQLResolver;
@@ -35,4 +34,6 @@ public class LiveTradeLevelsResolver implements GraphQLResolver<LiveTradeLevels>
     public SecurityTypeLp getSecurityTypeLpCode(LiveTradeLevels liveTradeLevels){
         return securityTypeLpRepository.findByCode(liveTradeLevels.getSecurityTypeLp().getCode());
     }
+
+
 }

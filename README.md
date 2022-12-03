@@ -83,6 +83,20 @@ findTradesBySecurityTypeAndXrefTypeAndXrefValue(securityCodeType: "SWAP", orgXre
 }
 ```
 
+### find trades by external references type, value, security type, and dates
+```
+ findTradesBySecurityTypeAndXrefTypeAndXrefValueAndDate(securityCodeType: "SWAP", orgXrefType: "BIC", orgXrefValue: "RUZW8348", startDate: "2002-01-01",endDate: "2010-12-31"){
+    counterParty{
+        orgId
+    },
+    executingBroker{
+        orgId,
+        orgLongName
+    },
+    tradeDateTime
+ }
+```
+
 ### find organization by id
 ```
 findOrganizationById(id: 1){
@@ -101,4 +115,14 @@ findFamilyById(id: 1){
     familyName
     familyDescription
 }
+```
+
+### find trades by date
+```
+findTradesByDates(startDate: "2002-01-01", endDate: "2008-01-01"){
+    tradeSideId,
+    executingBroker{
+        orgId
+        }
+    }
 ```
