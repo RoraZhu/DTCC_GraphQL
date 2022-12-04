@@ -126,3 +126,14 @@ findTradesByDates(startDate: "2002-01-01", endDate: "2008-01-01"){
         }
     }
 ```
+
+### Find trades that flowed from CTM to TradeSuite by political subdivision
+```
+findTradesuitePtasInTsByPoliticalSubdivision(politicalSubdivision: "NY"){
+        ctmDetailRefId
+        liveTradeDetails{
+        tradeDetailId
+    }
+}
+
+```
